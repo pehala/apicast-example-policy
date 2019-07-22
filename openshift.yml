@@ -10,15 +10,23 @@ objects:
   metadata:
     annotations:
     labels:
-      app: apicast
+      app: apicast-custom-policy
     name: apicast-policy
+
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+    labels:
+      app: apicast-custom-policy
+    name: amp-apicast-custom-policy
 
 - apiVersion: v1
   kind: BuildConfig
   metadata:
     annotations:
     labels:
-      app: apicast
+      app: apicast-custom-policy
     name: apicast-example-policy
   spec:
     output:
@@ -27,7 +35,7 @@ objects:
         name: apicast-policy:example
     source:
       git:
-        uri: https://github.com/3scale/apicast-example-policy.git
+        uri: https://github.com/mganisin/apicast-example-policy
         ref: 'master'
       type: Git
     strategy:
@@ -42,14 +50,14 @@ objects:
   metadata:
     annotations:
     labels:
-      app: apicast
+      app: apicast-custom-policy
     name: apicast-custom-policies
   spec:
     nodeSelector: null
     output:
       to:
         kind: ImageStreamTag
-        name: 'amp-apicast:latest'
+        name: 'amp-apicast-custom-policy:latest'
     postCommit:
       args:
         - '--test'

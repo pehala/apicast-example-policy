@@ -8,6 +8,7 @@ function _M.new()
 end
 
 function _M:init()
+  ngx.log(ngx.DEBUG, "example policy initialized")
   -- do work when nginx master process starts
 end
 
