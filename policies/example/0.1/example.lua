@@ -30,10 +30,12 @@ end
 
 function _M:post_action()
   -- do something after the response was sent to the client
+  ngx.req.set_header('X-Example-Policy-Request', 'HERE')
 end
 
 function _M:header_filter()
   -- can change response headers
+  ngx.header['X-Example-Policy-Response'] = 'HERE'
 end
 
 function _M:body_filter()
