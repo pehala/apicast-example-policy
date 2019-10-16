@@ -18,6 +18,7 @@ end
 
 function _M:rewrite()
   -- change the request before it reaches upstream
+  ngx.req.set_header('X-Example-Policy-Request', 'HERE')
 end
 
 function _M:access()
@@ -30,7 +31,6 @@ end
 
 function _M:post_action()
   -- do something after the response was sent to the client
-  ngx.req.set_header('X-Example-Policy-Request', 'HERE')
 end
 
 function _M:header_filter()
