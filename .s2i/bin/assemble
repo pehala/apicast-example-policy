@@ -2,4 +2,4 @@
 
 echo "---> Copying policy source..."
 cp -Rf /tmp/src/. ./
-exec rover install --roverfile=/Roverfile
+exec rover install --roverfile=./Roverfile
