@@ -6,4 +6,7 @@ luarocks {
     -- to automatically validate policy manifests
     module { 'ljsonschema' },
   }
+  group 'production' {
+    module { 'xml2lua' },
+  }
 }

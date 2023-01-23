@@ -2,6 +2,7 @@ local setmetatable = setmetatable
 
 local _M = require('apicast.policy').new('Example', '0.1')
 local mt = { __index = _M }
+local xml2lua = require("xml2lua")
 
 function _M.new()
   return setmetatable({}, mt)
