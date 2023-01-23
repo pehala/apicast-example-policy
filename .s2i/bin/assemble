@@ -2,4 +2,5 @@
 
 echo "---> Copying policy source..."
 cp -Rf /tmp/src/. ./
+dnf install git
 exec rover install --roverfile=./Roverfile
